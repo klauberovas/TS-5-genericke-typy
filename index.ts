@@ -68,6 +68,7 @@ const head = <T>(arr: T[]): T | null => {
 
 console.log(head([1, 2, 3, 4, 5, 6]));
 console.log(head(['eva', 'petr', 'tomáš']));
+console.log(head([]));
 
 //Funkce tail vrátí všechny prvky pole kromě prvního nebo prázdné pole, pokud je vstupní pole prázdné.
 const tail = <T>(arr: T[]): T[] | [] => {
@@ -134,8 +135,9 @@ console.log(strip(['eva', 'petr', 'tomáš']));
 //Funkce insert vloží na zadanou pozici do pole nový prvek a vrátí nové pole.
 // insert([1, 2, 3], 1, 4); // [1, 4, 2, 3]
 const insert = <T>(arr: T[], index: number, value: T): T[] => {
-  arr.splice(index, 0, value);
-  return arr;
+  return arr.slice(0, index).concat([value]).concat(arr.slice(index));
+  // arr.splice(index, 0, value);
+  // return arr;
 };
 console.log(insert([1, 2, 3], 1, 4));
 

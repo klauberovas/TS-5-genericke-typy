@@ -55,6 +55,7 @@ var head = function (arr) {
 };
 console.log(head([1, 2, 3, 4, 5, 6]));
 console.log(head(['eva', 'petr', 'tomáš']));
+console.log(head([]));
 //Funkce tail vrátí všechny prvky pole kromě prvního nebo prázdné pole, pokud je vstupní pole prázdné.
 var tail = function (arr) {
     return arr.length === 0 ? [] : arr.slice(1);
@@ -108,8 +109,9 @@ console.log(strip(['eva', 'petr', 'tomáš']));
 //Funkce insert vloží na zadanou pozici do pole nový prvek a vrátí nové pole.
 // insert([1, 2, 3], 1, 4); // [1, 4, 2, 3]
 var insert = function (arr, index, value) {
-    arr.splice(index, 0, value);
-    return arr;
+    return arr.slice(0, index).concat([value]).concat(arr.slice(index));
+    // arr.splice(index, 0, value);
+    // return arr;
 };
 console.log(insert([1, 2, 3], 1, 4));
 //Funkce remove odebere prvek na zadané pozici a vrátí nové pole.
